@@ -14,6 +14,7 @@ export default {
     actions: {
         GET_MESSAGES: function ({ commit,dispatch,rootState }) {
             commit("SET_MESSAGES",[]);
+            commit("loading/SET_DATA_LOADING",{show:true,text:'please wait...'},{ root: true });
 
             let headersList = {
                 "token": getLocalStorage('user_token')
@@ -37,6 +38,7 @@ export default {
                 });
 
                 dispatch('SCROLL_DOWN_MESSAGES');
+                commit("loading/SET_DATA_LOADING",{show:false,text:''},{ root: true });
             })
         },
         SEND_MESSAGES: function ({ commit,dispatch,rootState }, form) {
