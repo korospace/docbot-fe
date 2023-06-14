@@ -26,16 +26,23 @@ export default {
             })
             .then(response => response.json())
             .then(response => {
-                response.data.forEach(row => {
-                    commit("SET_MESSAGES",{
-                        position: 'right',
-                        text: row.question
-                    });
+                if (response.data.length == 0) {
                     commit("SET_MESSAGES",{
                         position: 'left',
-                        text: row.answer
+                        text: "silahkan ketik gejala yang anda rasakan"
                     });
-                });
+                } else {
+                    response.data.forEach(row => {
+                        commit("SET_MESSAGES",{
+                            position: 'right',
+                            text: row.question
+                        });
+                        commit("SET_MESSAGES",{
+                            position: 'left',
+                            text: row.answer
+                        });
+                    });
+                }
 
                 dispatch('SCROLL_DOWN_MESSAGES');
                 commit("loading/SET_DATA_LOADING",{show:false,text:''},{ root: true });
