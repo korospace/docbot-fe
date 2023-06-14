@@ -1,26 +1,34 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template>  
+  <LoadingComponent />
+  <router-view v-slot="{ Component }">
+    <transition name="fade">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import LoadingComponent from "@/components/loading.vue";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    components: {
+      LoadingComponent
+    },
+    setup() {
+      
+    },
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .fade-enter-active {
+    transition: opacity 1.5s linear;
+  }
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+  .fade-enter, .fade-leave-to {
+    position: absolute;
+    opacity: 0;
+  }
 </style>

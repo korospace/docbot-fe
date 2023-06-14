@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.select_with_icon {
+  @apply w-full pr-12 flex items-center relative bg-gray-100 border border-gray-100 rounded-md overflow-hidden;
+}
+
+.select_with_icon select {
+  @apply w-full bg-transparent focus:outline-none border-none px-4 py-4;
+}
+
+.floating_label {
+  @apply bg-gray-100 flex items-center relative w-full rounded-md;
+}
+
+.floating_label input:focus-within ~ span,
+.floating_label input:not(:placeholder-shown) ~ span {
+  @apply -top-5 left-0 text-neutral-600 text-xs opacity-80;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-docbot-green-300;
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-docbot-green-300
+}
