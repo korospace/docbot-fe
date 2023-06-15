@@ -7,10 +7,10 @@ import dashboardChat  from './modules/dashboardChat'
 
 export default createStore({
   state: {
-    apiMiddleware : "https://docbot-middleware.up.railway.app",
-    apiurl : "http://34.128.123.202:5000/api",
-    // apiMiddleware : "http://127.0.0.1:8000",
-    // apiurl : "http://127.0.0.1:5000/api",
+    // apiMiddleware : "https://docbot-middleware.up.railway.app",
+    // apiurl : "http://34.128.123.202:5000/api",
+    apiMiddleware : "http://127.0.0.1:8000",
+    apiurl : "http://127.0.0.1:5000/api",
   },
   getters: {
   },

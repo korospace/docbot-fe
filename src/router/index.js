@@ -22,11 +22,11 @@ const routes = [
     path: '/',
     name: 'dashboard',
     component: DashboardView,
-    redirect : "/botchat",
+    redirect : "/",
     beforeEnter: authCheck,
     children: [
       {
-        path: '/botchat',
+        path: '/',
         name: 'botchat',
         component: DashboardChatView
       },
